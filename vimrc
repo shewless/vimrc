@@ -1,16 +1,26 @@
+syntax on
+filetype indent plugin on
 set background=dark
 if has("gui_running")
     map  <silent>  <S-Insert>  "+p
     imap <silent>  <S-Insert>  <Esc>"+pa
     colorscheme solarized
 endif
+
 " Line numbers
 set nu
+
 " Split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" ale
+" let g:ale_open_list = 1
+" let g:ale_keep_list_window_open = 1
+" let g:ale_list_window_size = 5
+
 " lightline
 set laststatus=2
 set noshowmode
@@ -20,6 +30,7 @@ if has("gui_running")
           \ 'colorscheme': 'solarized',
           \ }
 endif
+
 " ale and lightline integration
 let g:lightline.component_expand = {
       \  'linter_checking': 'lightline#ale#checking',
@@ -37,10 +48,7 @@ let g:lightline.active = {
     \     'left': [[ 'mode', 'paste' ], [ 'fugitive', 'filename' ], [ 'tagbar' ]],
     \     'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ], [ 'lineinfo', 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ]]
     \ }
-" ale
-let g:ale_open_list = 1
-let g:ale_keep_list_window_open = 1
-let g:ale_list_window_size = 5
+
 " NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
