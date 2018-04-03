@@ -20,6 +20,8 @@ nnoremap <C-H> <C-W><C-H>
 " let g:ale_open_list = 1
 " let g:ale_keep_list_window_open = 1
 " let g:ale_list_window_size = 5
+nmap <silent> <A-k> <Plug>(ale_previous_wrap)
+nmap <silent> <A-j> <Plug>(ale_next_wrap)
 
 " lightline
 set laststatus=2
