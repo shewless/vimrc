@@ -42,12 +42,32 @@ let g:lightline.component_type = {
     \     'linter_checking': 'left',
     \     'linter_warnings': 'warning',
     \     'linter_errors': 'error',
-    \     'linter_ok': 'left'
+    \     'linter_ok': 'left',
+    \     'gitbranch': 'right',
     \ }
 let g:lightline.active = {
-    \     'left': [[ 'mode', 'paste' ], [ 'fugitive', 'filename' ], [ 'tagbar' ]],
-    \     'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ], [ 'lineinfo', 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ]]
+    \     'left': [[ 'mode', 'paste' ], [ 'gitbranch' ], [ 'readonly', 'filename' ], [ 'tagbar' ]],
+    \     'right': [[ 'lineinfo' ], [ 'percent' ], [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ], [ 'fileformat', 'fileencoding', 'filetype' ]]
     \ }
+let g:lightline.component_function = {
+    \     'virtualenv': 'LightlineVirtualenv',
+    \     'gitbranch': 'fugitive#head',
+    \     'fileformat': 'LightlineFileformat',
+    \     'filetype': 'LightlineFiletype',
+    \     'fileencoding': 'LightlineFileencoding',
+    \ }
+function! LightlineVirtualenv()
+  return get(split($VIRTUAL_ENV, "/"),-1,'')
+endfunction
+function! LightlineFileformat()
+  return winwidth(0) > 100 ? &fileformat : ''
+endfunction
+function! LightlineFiletype()
+  return winwidth(0) > 100 ? &filetype : ''
+endfunction
+function! LightlineFileencoding()
+  return winwidth(0) > 100 ? &fileencoding : ''
+endfunction
 
 " NERDTree
 autocmd StdinReadPre * let s:std_in=1
