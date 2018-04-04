@@ -50,7 +50,7 @@ let g:lightline.component_type = {
     \ }
 let g:lightline.active = {
     \     'left': [[ 'mode', 'paste' ], [ 'gitbranch' ], [ 'readonly', 'filename' ], [ 'tagbar' ]],
-    \     'right': [[ 'lineinfo' ], [ 'percent' ], [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ], [ 'fileformat', 'fileencoding', 'filetype' ]]
+    \     'right': [[ 'lineinfo' ], [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ], [ 'fileformat', 'fileencoding', 'filetype' ]]
     \ }
 let g:lightline.component_function = {
     \     'virtualenv': 'LightlineVirtualenv',
