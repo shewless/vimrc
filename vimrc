@@ -1,11 +1,15 @@
 syntax on
 filetype indent plugin on
-set background=dark
+
 if has("gui_running")
     map  <silent>  <S-Insert>  "+p
     imap <silent>  <S-Insert>  <Esc>"+pa
-    colorscheme solarized
+    let g:seoul256_background = 235
+    set guifont=Hack\ 14
+    " colorscheme solarized
 endif
+set background=dark
+colorscheme seoul256
 
 " Line numbers
 set nu
@@ -26,12 +30,9 @@ nmap <silent> <A-j> <Plug>(ale_next_wrap)
 " lightline
 set laststatus=2
 set noshowmode
-let g:lightline = {}
-if has("gui_running")
-    let g:lightline = {
-          \ 'colorscheme': 'solarized',
-          \ }
-endif
+let g:lightline = {
+      \ 'colorscheme': 'seoul256',
+      \ }
 
 " ale and lightline integration
 let g:lightline.component_expand = {

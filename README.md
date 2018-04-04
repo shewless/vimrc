@@ -17,5 +17,8 @@ https://github.com/vim-scripts/indentpython.vim.git
 nerdtree
 https://github.com/scrooloose/nerdtree.git
 
-vim-colors-solarized
+seoul256 theme
+https://github.com/junegunn/seoul256.vim.git
+
+vim-colors-solarized (optional.. not used)
 https://github.com/altercation/vim-colors-solarized.git
